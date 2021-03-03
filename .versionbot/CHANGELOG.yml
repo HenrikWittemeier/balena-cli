@@ -1,4 +1,199 @@
 - commits:
+    - subject: Fix whichspawn command
+      hash: 090770f3186d23a0ec86e66ca3b325867a979f80
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Build format file
+      hash: c7d9190c9fce82cbc6747b932f1d90987a6513d2
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Walk instead of find
+      hash: 696830d5e367d6038f0448645b78be6350942e65
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: fix shrinkwrap and package.json
+      hash: 3bfecfdb6b4a9a77f29fbccfe1c3db0c524c588d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Formatting
+      hash: bf06d8abf3cb5cda602928efd8c9187ea7c832a0
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Fix dependency
+      hash: 56446a8e8b46fec7ba79f73107121f73a0bd7f14
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Fix other npm changes
+      hash: 90a8d250ea9fdbe5ea89e40c877990606348e577
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: fix npm shrinkwrap
+      hash: 2b840f2c161b04d83c3773dc6a1bc7958a54f243
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Change logging
+      hash: 09118651c2a61239abc57f230d1b51a1dc4a155b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Add productsign to all .node files
+      hash: 249c4e9c27c73f2df447cc89204d89d85c97cca7
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Fix shrinkwrap
+      hash: ef2589dd52d63077afb05cd71d8637155e2a029d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: remove file
+      hash: c6c5ae0acee5289df68cd07962af8bc1e44a2a3b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Test path to include any .zip file with 'test' in the path
+      hash: 4c7ddaddee3675c1bea260b67fe513ee1132929e
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Makes more sense
+      hash: f13912683ef557282d63b6be4228c2bd9b7176c7
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Update walk and delete zip files
+      hash: 17b51f6b3ea55fec06ab22c1991b7cbb4ae4d15f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Add zip file deletion to remove notarization errors on macos
+      hash: aadd6ff8ae506a2fb40e546359b6dfef2a3eaf4d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Semicolon
+      hash: f2b45abee1f6cac583290ffa8d500e9228d77d45
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Throw error intentionally
+      hash: 13e49e5e14b646850a1d26fd7996dfc27d6ae0b5
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Move notarization into macos only
+      hash: 8ca999be738b620d1cd4e00e9cd3fc9e2e5664f1
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Remove net-keepalive dependency
+      hash: 73f9783d5fd5154f55fc35f13fd5694ea80e6680
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Fix path
+      hash: ea41dfb379004e2e5df1a02c4ed41dc27d35df9c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Fixed optional dependencies
+      hash: 824a2683b0fbd5f4695b5f875451e9bb7a1b82ae
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Fixed lockfile and shrinkwrap file
+      hash: 999b9689dda258a54b852258f8bd7f7caf16ce28
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+    - subject: Update macOS installer to avoid Apple's warning pop-up
+      hash: ade168bad57c45089e69054e9733831d3485ab1c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+  version: 12.40.3
+  date: 2021-03-03T22:32:51.254Z
+- commits:
     - subject: 'docs: Fix missing markdown docs for device `deactivate` and `local-mode`'
       hash: b90c9b0d7e59353101213c6be22eaff9a9c0b274
       body: ''
