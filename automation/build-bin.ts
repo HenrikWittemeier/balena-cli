@@ -28,6 +28,8 @@ import * as path from 'path';
 import * as rimraf from 'rimraf';
 import * as semver from 'semver';
 import * as util from 'util';
+import * as klaw from 'klaw';
+import { Stats } from 'fs';
 
 import { stripIndent } from '../lib/utils/lazy';
 import {
@@ -344,6 +346,20 @@ async function signWindowsInstaller() {
 }
 
 /**
+ * Wait for Apple Installer Notarization to continue
+ */
+async function afterSignHook(): Promise<void> {
+	const appleId = 'accounts+apple@balena.io';
+	const { notarize } = await import('electron-notarize');
+	await notarize({
+		appBundleId: 'io.balena.etcher',
+		appPath: renamedOclifInstallers.darwin,
+		appleId,
+		appleIdPassword: '@keychain:CLI_PASSWORD',
+	});
+}
+
+/**
  * Run the `oclif-dev pack:win` or `pack:macos` command (depending on the value
  * of process.platform) to generate the native installers (which end up under
  * the 'dist' folder). There are some harcoded options such as selecting only
@@ -354,6 +370,39 @@ export async function buildOclifInstaller() {
 	let packOpts = ['-r', ROOT];
 	if (process.platform === 'darwin') {
 		packOS = 'macos';
+		await new Promise((resolve, reject) => {
+			klaw('node_modules/')
+				.on('data', (item: { path: string; stats: Stats }) => {
+					if (!item.stats.isFile()) {
+						return;
+					}
+					if (
+						path.basename(item.path).endsWith('.zip') &&
+						path.dirname(item.path).includes('test')
+					) {
+						console.log('Removing zip', item.path);
+						fs.unlinkSync(item.path);
+					}
+				})
+				.on('end', resolve)
+				.on('error', reject);
+		});
+		// Sign all .node files first
+		await new Promise((resolve, reject) => {
+			klaw('node_modules/')
+				.on('data', async (item: { path: string; stats: Stats }) => {
+					if (!item.stats.isFile()) {
+						return;
+					}
+					if (path.basename(item.path).endsWith('.node')) {
+						await whichSpawn(
+							`productsign --sign "Developer ID Installer: Rulemotion Ltd (66H43P8FRG)" ${item.path}`,
+						); // Replace with signed versions
+					}
+				})
+				.on('end', resolve)
+				.on('error', reject);
+		});
 	} else if (process.platform === 'win32') {
 		packOS = 'win';
 		packOpts = packOpts.concat('-t', 'win32-x64');
@@ -381,6 +430,8 @@ export async function buildOclifInstaller() {
 		// (`oclif.macos.sign` section).
 		if (process.platform === 'win32') {
 			await signWindowsInstaller();
+		} else if (process.platform === 'darwin') {
+			await afterSignHook(); // Notarize
 		}
 		console.log(`oclif installer build completed`);
 	}
